@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allure отчёты — Автоматизация тестирования</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 90%;
+            padding: 40px 30px;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e8f0fe;
+            color: #1a73e8;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 16px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 30px 24px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+            border-color: #e2e8f0;
+        }
+
+        .card .icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        .card h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .card .btn {
+            background: #1a73e8;
+            color: #fff;
+            padding: 10px 28px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+            display: inline-block;
+        }
+
+        .card .btn:hover {
+            background: #1557b0;
+        }
+
+        .card.api .btn {
+            background: #7c3aed;
+        }
+
+        .card.api .btn:hover {
+            background: #6d28d9;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 13px;
+            color: #94a3b8;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 24px;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="badge">📊 Allure Reports</div>
+        <h1>Отчёты о прохождении тестов</h1>
+        <p class="subtitle">
+            Выберите направление, чтобы увидеть детальный Allure отчёт
+        </p>
+
+        <div class="grid">
+            <!-- UI Карточка -->
+            <a class="card" href="./ui-report/index.html">
+                <div class="icon">🖥️</div>
+                <h2>UI Тесты</h2>
+                <p>igrovoy.rt.ru — каталог игр, карточка товара, системные требования и блок скачивания</p>
+                <span class="btn">Открыть отчёт →</span>
+            </a>
+
+            <!-- API Карточка -->
+            <a class="card api" href="./api-report/index.html">
+                <div class="icon">⚙️</div>
+                <h2>API Тесты</h2>
+                <p>Управление сотрудниками — создание, получение, изменение и удаление сотрудников</p>
+                <span class="btn">Открыть отчёт →</span>
+            </a>
+        </div>
+
+        <div class="footer">
+            <span>🧪 Selenium · pytest · requests</span>
+            <span>📦 Отчёты сформированы Allure</span>
+        </div>
+    </div>
+
+</body>
+</html>

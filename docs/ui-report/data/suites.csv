@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","8443","Проверка кнопок скачивания CarX Drift Racing 2","tests.ui","2026-07-20","passed","2026-07-20","TestGames","test_games","",""
+"","66880","Проверка минимальных требований LEGO Batman","tests.ui","2026-07-20","passed","2026-07-20","TestGames","test_games","",""
+"","12436","Проверка поиска и цены игры Pioner","tests.ui","2026-07-20","passed","2026-07-20","TestGames","test_games","",""

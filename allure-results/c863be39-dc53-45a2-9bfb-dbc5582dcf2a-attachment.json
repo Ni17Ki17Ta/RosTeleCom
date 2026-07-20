@@ -1,0 +1,8 @@
+{
+  "name": "Иван Иванов",
+  "email": "ivan@example.com",
+  "position": "Java Developer",
+  "department": "Разработка",
+  "company": "Acme Corp",
+  "salary": 100000
+}
