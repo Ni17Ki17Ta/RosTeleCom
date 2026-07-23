@@ -46,11 +46,8 @@ class TestGames:
             main_page.hover_games_and_select_pc()
         
         with allure.step("Переход на 2-ю страницу списка игр"):
-            import time
-            time.sleep(2)
-            page_2 = driver.find_element(By.XPATH, "//a[contains(@class, 'Pagination-module-scss-module__7rqbBa__pageItem') and text()='2']")
-            page_2.click()
-            time.sleep(2)
+            games_page = GamesPage(driver)
+            games_page.go_to_page(2)
             allure.attach(
                 driver.get_screenshot_as_png(),
                 name="Страница 2 списка игр",
@@ -60,7 +57,7 @@ class TestGames:
         with allure.step("Поиск игры LEGO Batman в списке на 2-й странице"):
             games_page = GamesPage(driver)
             game_name = "LEGO Batman: Legacy of the Dark Knight"
-            assert games_page.find_game_in_list(game_name), f"Игра {game_name} не найдена на 2-й странице"
+            assert games_page.find_game_in_list(game_name), f"Игра {game_name} не найдена"
             allure.attach(
                 driver.get_screenshot_as_png(),
                 name="Карточка LEGO Batman",
@@ -77,11 +74,6 @@ class TestGames:
             }
             game_detail = GameDetailPage(driver)
             game_detail.verify_min_requirements(expected_requirements)
-            allure.attach(
-                "Все требования соответствуют",
-                name="Результат проверки",
-                attachment_type=allure.attachment_type.TEXT
-            )
     
     @allure.story("Кейс 3: Проверка скачивания CarX Drift Racing 2")
     @allure.title("Проверка кнопок скачивания CarX Drift Racing 2")
@@ -92,16 +84,13 @@ class TestGames:
             driver.get(ui_base_url)
         
         with allure.step("Прокрутка страницы в самый низ"):
-            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-            import time
-            time.sleep(2)
+            main_page = MainPage(driver)
+            main_page.scroll_to_bottom()
         
-        with allure.step("Поиск игры CarX Drift Racing 2 в футере"):
-            import time
-            time.sleep(1)
-            carx_link = driver.find_element(By.XPATH, "//a[contains(@href, 'drift_racing2')]")
-            driver.execute_script("arguments[0].click();", carx_link)
-            time.sleep(2)
+        with allure.step("Поиск игры CarX Drift Racing 2"):
+            games_page = GamesPage(driver)
+            game_name = "CarX Drift Racing 2"
+            games_page.find_game_in_list(game_name)
         
         with allure.step("Проверка кнопок скачивания"):
             game_detail = GameDetailPage(driver)
